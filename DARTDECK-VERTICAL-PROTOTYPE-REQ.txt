@@ -1,0 +1,8 @@
+Loginpage
+Homepage -|
+	Deck List
+	Add New Deck-|
+		Cues
+		Save Card to Deck
+		Writing/Drawing
+	Deck Generator From List (if time)
