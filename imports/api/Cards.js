@@ -46,7 +46,9 @@ Meteor.methods({
     const cardId = Cards.insert({
         front: frontText,
         back: backText,
-        deckId: '0'
+        deckId: '0',
+        shape:'Rectangle',
+        color:'white',
         createdAt: new Date(),
     });
   },
