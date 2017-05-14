@@ -1,0 +1,47 @@
+#deck-editor-sub-container {
+  position: absolute;
+  background-color: gray;
+  min-height: 400px;
+  width: 1008px;
+  z-index: -2;
+}
+
+#deck-view {
+  position: absolute;
+  background-color: #2ecc71;
+  min-height: 450px;
+  width: 215px;
+  z-index: 2;
+  text-align:center
+}
+
+#toolbar {
+  background-color: #6BB9F0;
+  position: absolute;
+  margin-left: 300px;
+  margin-top: 330px;
+  width: 610px;
+  height: 100px;
+  z-index: 2;
+}
+
+#main-editor {
+  background-color: #C5EFF7;
+  position: absolute;
+  margin-left: 300px;
+  margin-top: 30px;
+  width: 610px;
+  height: 275px;
+  z-index: 2;
+
+}
+
+#editor-container {
+  position: absolute;
+  background-color: #F4B350;
+  min-height: 450px;
+  width: 1008px;
+  z-index: -1;
+  text-align: center;
+  position: relative;
+}
