@@ -1,8 +1,14 @@
 import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
+import { browserHistory } from 'react-router';
 import './HomeStyles.css';  
 
 export default class Splash extends Component {
+
+  goToDeckEditor() {
+    browserHistory.push('/deckeditor');
+  }
+
   render() {
     return (
       <div>
@@ -29,7 +35,7 @@ export default class Splash extends Component {
             <td>Psyc 06</td> 
           </tr> 
         </table> 
-        <button type="button">Add Deck!</button>
+        <button type="button" onClick={this.goToDeckEditor.bind(this)}>Add Deck!</button>
       </div>
     );
   }

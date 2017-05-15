@@ -60,15 +60,6 @@ export default class UserSignIn extends React.Component {
               </form>
             </div>
             <div className="bottomButtonBuffer" />
-            <div className="bottomButtonContainer">
-              <button
-                key="sign_up_card"
-                className="bottomButtonTwo"
-                onClick={this.goToSignUp.bind(this)}
-              >
-                Sign Up
-              </button>
-            </div>
           </div>
         </div>
       </div>
