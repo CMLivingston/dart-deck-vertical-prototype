@@ -24,9 +24,15 @@ export default class DeckEditor extends Component {
     };
   }
 
-  setMessage(e) {
+  setMessage1(e) {
     this.setState({
-      message: e.target.value,
+      message1: e.target.value,
+    });
+  }
+
+  setMessage2(e) {
+    this.setState({
+      message2: e.target.value,
     });
   }
 
@@ -112,6 +118,10 @@ export default class DeckEditor extends Component {
           </div>
   */
 
+  go() {
+    browserHistory.push('/home')
+  }
+
 
   render() {
     return (
@@ -119,14 +129,14 @@ export default class DeckEditor extends Component {
         <h2>
           DartDeck - DeckEditor
         </h2>
-        <button type="button" id="go-home">Home</button>
+        <button onClick={this.go.bind(this)}>Home</button>
         <hr></hr>
         <div className="channel-search">
           <h3>New Card</h3>
           <h4>Front</h4> 
-          <input type="text" value={this.state.message1} onChange={this.setMessage.bind(this)} placeholder="Front of Card" value="" />
+          <input type="text" value={this.state.message1} onChange={this.setMessage1.bind(this)} placeholder="Front of Card" />
           <h4>Back</h4> 
-          <input type="text" value={this.state.message2} placeholder="Back of Card" />
+          <input type="text" value={this.state.message2} onChange={this.setMessage2.bind(this)}  placeholder="Back of Card" />
           <button type="button" id="add-card-button" onClick={this.openCloseAddCard2.bind(this)}>Add New Card</button>
         </div>
         <div className="deck">
@@ -138,6 +148,11 @@ export default class DeckEditor extends Component {
           <button type="button" id="add-card-button" onClick={this.openCloseAddCard.bind(this)}>Add New Card</button>
           <button type="button" id="button1" onClick={this.editClick.bind(this)}>Edit Card</button>
           <button type="button" id="button2" onClick={this.deleteClick.bind(this)}>Delete Card</button>
+          <button type="button" id="saveAndExit">Save and Exit to Home</button>
+          <form action="">
+            <input type="radio" name="gender" value="male" /> Public<br></br>
+            <input type="radio" name="gender" value="female" /> Private<br></br>
+          </form>
         </div>
       </div>
     );
