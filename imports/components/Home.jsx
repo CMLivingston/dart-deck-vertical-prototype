@@ -3,10 +3,25 @@ import { Meteor } from 'meteor/meteor';
 import './HomeStyles.css';  
 import { browserHistory } from 'react-router';
 
-export default class Splash extends Component {
+export default class Home extends Component {
 
   goToDeckEditor() {
     browserHistory.push('/deckeditor')
+  }
+
+  goToFormEditor() {
+    browserHistory.push('/forminput')
+  }
+
+  openCloseAddDeck() {
+    function slideMenu() {
+      var channelSearch = document.querySelector('.add-deck');
+      channelSearch.classList.toggle('open');
+      if (channelSearch.classList.contains('transition') > -1){
+        channelSearch.classList.add('transition');
+      }
+    }
+    slideMenu();
   }
 
   render() {
@@ -16,6 +31,16 @@ export default class Splash extends Component {
           DartDeck - Home
         </h2>
         <hr></hr>
+        <div className="add-deck">
+          <h3>Deck Creation</h3>
+          <button type="button" id="add-deck-button-1" onClick={this.goToFormEditor.bind(this)}>Create With Form</button>
+          <button type="button" id="add-deck-button-2" onClick={this.goToDeckEditor.bind(this)}>Create With Deck Editor</button>
+          <button type="button" id="add-deck-button-3" onClick={this.openCloseAddDeck.bind(this)}>Cancel</button>
+        </div>
+        <div class="checkbox">
+         <input id="checkMe" type="checkbox" />
+         <label for="checkMe"></label>
+        </div>
         <table className="homeTableWrapper">
           <caption> ALL DECKS </caption> 
           <tr> 
@@ -35,7 +60,7 @@ export default class Splash extends Component {
             <td>Psyc 06</td> 
           </tr> 
         </table> 
-        <button onClick={this.goToDeckEditor.bind(this)} type="button">Add Deck!</button>
+        <button onClick={this.openCloseAddDeck.bind(this)} type="button">Add Deck!</button>
       </div>
     );
   }

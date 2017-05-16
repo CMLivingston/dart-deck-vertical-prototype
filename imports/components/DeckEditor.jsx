@@ -9,18 +9,12 @@ export default class DeckEditor extends Component {
     this.state = {
       message1: '',
       message2: '',
-      cards: [
-        {front:"Photosynthesis",
-         back: "plants!",
-         color: "White",
-         shape: "Rectangle",
-        },
-        {front:"Krebs Cycle",
-         back: "a cycle that is cool",
-         color: "White",
-         shape: "Rectangle",
-        }
-      ],
+      deckName: "Deck Name",
+      cards: [],
+      currentCard: {
+        front: "Front",
+        back: "Back",
+      },
     };
   }
 
@@ -39,8 +33,8 @@ export default class DeckEditor extends Component {
   openCloseAddCard2() {
     s = this.state.cards;
     s.push(
-      {front:"Oxidation",
-       back: "a cycle that is cool",
+      {front: this.state.message1,
+       back: this.state.message2,
        color: "White",
        shape: "Rectangle",
       }
@@ -48,7 +42,11 @@ export default class DeckEditor extends Component {
     this.setState({
       cards: s,
     });
-    console.log(this.state);
+    this.setState({
+      message2:"",
+      message1:"",
+    });
+    //console.log(this.state);
     function slideMenu() {
       var channelSearch = document.querySelector('.channel-search');
       channelSearch.classList.toggle('open');
@@ -70,6 +68,14 @@ export default class DeckEditor extends Component {
     slideMenu();
   }
 
+  setCurrentCard(e,data) {
+    console.log(data);
+    var card = data;
+    this.setState({
+      currentCard: card,
+    });
+  }
+
   renderCards() {
     var cards = this.state.cards;
     return (
@@ -77,7 +83,7 @@ export default class DeckEditor extends Component {
         {cards.map((card) => {
           return (
             <div>
-              <li>{card.front}</li>
+              <li className="high" onClick={(e) => this.setCurrentCard(e, card)} key={card.back}>{card.front}</li>
             </div>
           )
         })}
@@ -143,6 +149,12 @@ export default class DeckEditor extends Component {
           <h4>Current Deck</h4>
           <hr></hr>
           {this.renderCards()}
+        </div>
+        <div id="current-card-front">
+          <p className="pad">{this.state.currentCard.front}</p>
+        </div>
+        <div id="current-card-back">
+          <p className="pad">{this.state.currentCard.back}</p>
         </div>
         <div id="toolbar">
           <button type="button" id="add-card-button" onClick={this.openCloseAddCard.bind(this)}>Add New Card</button>
