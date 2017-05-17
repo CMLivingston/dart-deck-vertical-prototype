@@ -23,10 +23,6 @@ export default class FormInput extends Component {
             DartDeck - Form Input 
           </h2>
           <button className="inline">Home</button>
-          <form action="" className="inline">
-            <input type="radio" name="mode" value="flashcard" checked="checked"/> Flashcard Mode<br></br>
-            <input type="radio" name="mode" value="diagram" /> Diagram Mode<br></br>
-          </form>
         </div>
         <hr></hr>
           <form className = "formPanel">
