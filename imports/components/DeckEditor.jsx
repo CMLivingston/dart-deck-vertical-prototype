@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import './DeckEditorStyles';
 import { browserHistory } from 'react-router';
+import { Session } from 'meteor/session';
 
 export default class DeckEditor extends Component {
   constructor(props) {
@@ -9,7 +10,8 @@ export default class DeckEditor extends Component {
     this.state = {
       message1: '',
       message2: '',
-      deckName: "Deck Name",
+      deckType: 'Private',
+      deckName: "New Deck Name",
       cards: [],
       currentCard: {
         front: "Front",
@@ -27,6 +29,12 @@ export default class DeckEditor extends Component {
   setMessage2(e) {
     this.setState({
       message2: e.target.value,
+    });
+  }
+
+  setDeckName(e) {
+    this.setState({
+      deckName: e.target.value,
     });
   }
 
@@ -68,6 +76,40 @@ export default class DeckEditor extends Component {
     slideMenu();
   }
 
+  openEdit() {
+    function slideMenu() {
+      var channelSearch = document.querySelector('.edit');
+      channelSearch.classList.toggle('open');
+      if (channelSearch.classList.contains('transition') > -1){
+        channelSearch.classList.add('transition');
+      }
+    }
+    slideMenu();
+  }
+
+  openNC1() {
+    console.log('hehe');
+    function slideMenu() {
+      var channelSearch = document.querySelector('.name-change');
+      channelSearch.classList.toggle('open');
+      if (channelSearch.classList.contains('transition') > -1){
+        channelSearch.classList.add('transition');
+      }
+    }
+    slideMenu();
+  }
+
+  openNC2() {
+    function slideMenu() {
+      var channelSearch = document.querySelector('.name-change');
+      channelSearch.classList.toggle('open');
+      if (channelSearch.classList.contains('transition') > -1){
+        channelSearch.classList.add('transition');
+      }
+    }
+    slideMenu();
+  }
+
   setCurrentCard(e,data) {
     console.log(data);
     var card = data;
@@ -75,6 +117,8 @@ export default class DeckEditor extends Component {
       currentCard: card,
     });
   }
+
+
 
   renderCards() {
     var cards = this.state.cards;
@@ -97,18 +141,14 @@ export default class DeckEditor extends Component {
 
   deleteClick() {
     console.log('Delete Clicked');
-    s = [
-        {front:"Photosynthesis",
-         back: "plants!",
-         color: "White",
-         shape: "Rectangle",
-        },
-        {front:"Krebs Cycle",
-         back: "a cycle that is cool",
-         color: "White",
-         shape: "Rectangle",
-        }
-      ];
+
+    s = this.state.cards;
+    console.log(s);
+    c = this.state.currentCard.front
+    var index = s.findIndex(function(o){
+     return o.front == c;
+    })
+    s.splice(index, 1);
     this.setState({
       cards: s,
     });
@@ -128,6 +168,28 @@ export default class DeckEditor extends Component {
     browserHistory.push('/home')
   }
 
+  setTypePub() {
+    this.setState({
+      deckType: 'Public',
+    });
+  }
+
+  setTypePriv() {
+    this.setState({
+      deckType: 'Private',
+    });
+  }
+
+  saveAndExit() {
+    if (this.state.deckType == 'Private') {
+      Session.set('priv', this.state.deckName);
+    } 
+    if (this.state.deckType == 'Public') {
+      console.log('public');
+      Session.set('pub', this.state.deckName);
+    } 
+    browserHistory.push('/home')
+  }
 
   render() {
     return (
@@ -151,9 +213,21 @@ export default class DeckEditor extends Component {
           <input type="text" value={this.state.message2} onChange={this.setMessage2.bind(this)}  placeholder="Back of Card" />
           <button type="button" id="add-card-button" onClick={this.openCloseAddCard2.bind(this)}>Add New Card</button>
         </div>
+        <div className="edit">
+          <h3>Edit Tools</h3>
+          <p>Here there would be a color pallete for changing color of card and 
+          a shape editor for changing the shape of the card</p>
+          <button type="button" id="add-card-button" onClick={this.openEdit.bind(this)}>Close</button>
+        </div>
+        <div className="name-change">
+          <h3>New Name:</h3>
+          <input type="text" onChange={this.setDeckName.bind(this)} placeholder="New Deck Name" />
+          <button type="button" id="change-deck" onClick={this.openNC2.bind(this)}>Save Name</button>
+        </div>
         <div className="deck">
           <div className="deck_lable">
-            <h>Current Deck</h>
+            <h onClick={this.openNC1.bind(this)}>{this.state.deckName}</h>
+            <p onClick={this.openNC1.bind(this)}>(Click to Change)</p>
             <hr></hr>
             {this.renderCards()}
           </div>
@@ -166,12 +240,12 @@ export default class DeckEditor extends Component {
         </div>
         <div id="toolbar">
           <button type="button" className="inner" id="add-card-button2" onClick={this.openCloseAddCard.bind(this)}>Add New Card</button>
-          <button type="button" className="inner" id="button1" onClick={this.editClick.bind(this)}>Edit Card</button>
+          <button type="button" className="inner" id="button1" onClick={this.openEdit.bind(this)}>Edit Card</button>
           <button type="button" className="inner" id="button2" onClick={this.deleteClick.bind(this)}>Delete Card</button>
-          <button type="button" className="inner" id="saveAndExit">Save</button>
+          <button type="button" className="inner" id="saveAndExit" onClick={this.saveAndExit.bind(this)}>Save and Exit</button>
           <form className="inner" action="">
-            <input type="radio" name="gender" value="Public" /> Public<br></br>
-            <input type="radio" name="gender" value="Private" /> Private<br></br>
+            <input onClick={this.setTypePub.bind(this)} type="radio" name="gender" value="Public" /> Public<br></br>
+            <input onClick={this.setTypePriv.bind(this)} type="radio" name="gender" value="Private" /> Private<br></br>
           </form>
         </div>
       </div>

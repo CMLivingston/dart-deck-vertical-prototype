@@ -16,6 +16,46 @@ body {
 
 }
 
+.edit {
+  position: absolute;
+  left: 350px;
+  background-color: #3498db;
+  min-height: 200px;
+  bottom: -500px;
+  width: 540px;
+  z-index: 9998;
+  text-align:center;
+  padding-left: 10px;
+  background-clip: content-box;
+}
+.edit.open {
+  opacity: 1;
+  bottom: 0px;
+}
+
+#change-deck {
+  position: absolute;
+  width: 50px;
+  margin-left: -75px;
+  top: 90px;
+}
+
+.name-change {
+  position: absolute;
+  left: -250px;
+  background-color: gray;
+  min-height: 160px;
+  width: 250px;
+  z-index: 9998;
+  text-align:center;
+  background-clip: content-box;
+}
+.name-change.open {
+  opacity: 1;
+  left: 0px;
+}
+
+
 .deck {
   position: absolute;
   background-color: #2ecc71;
@@ -136,10 +176,19 @@ body {
   display: flex;
 }
 
+
+
 .inner{
   margin: 10px;
   height: 25px;
   margin-top: 25px;
+}
+
+#saveAndExit {
+  position: relative;
+  height: 45px;
+  margin-bottom: 20px;
+  margin-right: 2px;
 }
 
 #go-home {

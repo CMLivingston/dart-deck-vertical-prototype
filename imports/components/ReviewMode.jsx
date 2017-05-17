@@ -3,6 +3,11 @@ import { Meteor } from 'meteor/meteor';
 import { browserHistory } from 'react-router';
 
 export default class DeckEditor extends Component {
+
+  goHome() {
+    browserHistory.push('/home');
+  }
+
 	render() {
     return (
       <div>
@@ -10,11 +15,7 @@ export default class DeckEditor extends Component {
           <h2>
             DartDeck - Review Mode 
           </h2>
-          <button className="inline">Home</button>
-          <form action="" className="inline">
-            <input type="radio" name="mode" value="flashcard" checked="checked" /> Flashcard Mode<br></br>
-            <input type="radio" name="mode" value="diagram" /> Diagram Mode<br></br>
-          </form>
+          <button onClick={this.goHome.bind(this)} className="inline">Home</button>
         </div>
       </div>
     );

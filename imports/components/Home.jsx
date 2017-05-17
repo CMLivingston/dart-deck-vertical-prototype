@@ -2,8 +2,29 @@ import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import './HomeStyles.css';  
 import { browserHistory } from 'react-router';
+import { Session } from 'meteor/session';
 
 export default class Home extends Component {
+  constructor(props) {
+    super(props);
+    pubDeck = null;
+    privDeck = null;
+    pu = Session.get('pub');
+    pr = Session.get('priv');
+    console.log(pu);
+    console.log(pr);
+
+    if (pu) {
+      pubDeck = pu;
+    }
+    if (pr) {
+      privDeck = pr;
+    }
+    this.state = {
+      pubDeckName: pubDeck,
+      privDeckName: privDeck,
+    }
+  }
 
   goToDeckEditor() {
     browserHistory.push('/deckeditor')
@@ -54,6 +75,10 @@ export default class Home extends Component {
           <tr> 
             <td>Math 23</td> 
             <td>Psyc 06</td> 
+          </tr> 
+          <tr> 
+            <td>{this.state.privDeckName}</td>
+            <td>{this.state.pubDeckName}</td> 
           </tr> 
         </table> 
         <button onClick={this.openCloseAddDeck.bind(this)} type="button">Add Deck!</button>

@@ -10,12 +10,12 @@ body {
   border-radius: 5px;
   background-color: #CCD1D1;
   width: 50%;
-  height: 450px;
+  height: 380px;
 }
 
 .newCard{
   position: relative;
-  margin-left: 480px;
+  margin-left: 420px;
   margin-bottom: 5px;
   width: 75px;
   padding: 5px;
@@ -39,9 +39,9 @@ body {
 }
 
 .submit{
-  position: fixed;
+  position: absolute;
   margin-top: 5px;
-  margin-left: 860px;
+  margin-left: 680px;
   padding: 5px;
   border: 2px solid green;
 }
