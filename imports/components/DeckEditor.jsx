@@ -132,10 +132,16 @@ export default class DeckEditor extends Component {
   render() {
     return (
       <div>
-        <h2>
-          DartDeck - DeckEditor
-        </h2>
-        <button onClick={this.go.bind(this)}>Home</button>
+        <div className="menu">
+          <h2>
+            DartDeck - DeckEditor 
+          </h2>
+          <button className="inline" onClick={this.go.bind(this)}>Home</button>
+          <form action="" className="inline">
+            <input type="radio" name="mode" value="flashcard" checked="checked"/> Flashcard Mode<br></br>
+            <input type="radio" name="mode" value="diagram" /> Diagram Mode<br></br>
+          </form>
+        </div>
         <hr></hr>
         <div className="channel-search">
           <h3>New Card</h3>
@@ -146,9 +152,11 @@ export default class DeckEditor extends Component {
           <button type="button" id="add-card-button" onClick={this.openCloseAddCard2.bind(this)}>Add New Card</button>
         </div>
         <div className="deck">
-          <h4>Current Deck</h4>
-          <hr></hr>
-          {this.renderCards()}
+          <div className="deck_lable">
+            <h>Current Deck</h>
+            <hr></hr>
+            {this.renderCards()}
+          </div>
         </div>
         <div id="current-card-front">
           <p className="pad">{this.state.currentCard.front}</p>
@@ -157,13 +165,13 @@ export default class DeckEditor extends Component {
           <p className="pad">{this.state.currentCard.back}</p>
         </div>
         <div id="toolbar">
-          <button type="button" id="add-card-button" onClick={this.openCloseAddCard.bind(this)}>Add New Card</button>
-          <button type="button" id="button1" onClick={this.editClick.bind(this)}>Edit Card</button>
-          <button type="button" id="button2" onClick={this.deleteClick.bind(this)}>Delete Card</button>
-          <button type="button" id="saveAndExit">Save and Exit to Home</button>
-          <form action="">
-            <input type="radio" name="gender" value="male" /> Public<br></br>
-            <input type="radio" name="gender" value="female" /> Private<br></br>
+          <button type="button" className="inner" id="add-card-button2" onClick={this.openCloseAddCard.bind(this)}>Add New Card</button>
+          <button type="button" className="inner" id="button1" onClick={this.editClick.bind(this)}>Edit Card</button>
+          <button type="button" className="inner" id="button2" onClick={this.deleteClick.bind(this)}>Delete Card</button>
+          <button type="button" className="inner" id="saveAndExit">Save</button>
+          <form className="inner" action="">
+            <input type="radio" name="gender" value="Public" /> Public<br></br>
+            <input type="radio" name="gender" value="Private" /> Private<br></br>
           </form>
         </div>
       </div>

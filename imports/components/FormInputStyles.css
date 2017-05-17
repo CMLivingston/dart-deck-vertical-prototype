@@ -9,30 +9,52 @@ body {
   border-radius: 5px;
   background-color: #f2f2f2;
   width: 50%;
-  height: 500px;
+  height: 450px;
 }
 
 .newCard{
   position: relative;
-  margin-left: 410px;
+  margin-left: 480px;
   margin-bottom: 5px;
+  width: 75px;
   padding: 5px;
   border: 2px solid green;
+}
+
+.inline{
+  width: auto;
+  height: 20px;
+  margin-left: 10px;
+  margin-top: 25px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 2px;
+  padding-bottom: 4px;
+  display:inline-block;
+}
+
+.menu{
+  display: flex;
 }
 
 .submit{
   position: fixed;
   margin-top: 5px;
-  margin-left: 875px;
+  margin-left: 860px;
   padding: 5px;
   border: 2px solid green;
+}
+
+.pubpriv{
+  padding-top: 5px;
+  margin-left: 775px;
 }
 
 input[type="text"] {
   border: 0;
   outline: 0;
   width: 35%;
-  background-color: rgba(255, 0, 0, 0.2);
+  background-color: rgba(46,204,113, 0.25);
   padding: 5px;
   border-bottom: 1px solid black;
 }

@@ -1,20 +1,43 @@
 .channel-search {
   position: absolute;
   left: -215px;
-  background-color: #2ecc71;
+  background-color: #3498db;
   min-height: 450px;
   width: 215px;
   z-index: 9998;
   text-align:center
 }
+
 .deck {
   position: absolute;
-  background-color: #e74c3c;
+  background-color: #2ecc71;
+  padding-left: 25px;
   min-height: 450px;
   left: 0;
   width: 215px;
   z-index: 9997;
-  text-align:center
+  text-align:center;
+  background-clip: content-box;
+}
+
+.inline{
+  width: auto;
+  height: 20px;
+  margin-left: 10px;
+  margin-top: 25px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 2px;
+  padding-bottom: 4px;
+  display:inline-block;
+}
+
+.deck_lable{
+  margin-top: 8px;
+}
+
+.deck_holder{
+  background-color: blue;
 }
 
 .channel-search.open {
@@ -39,7 +62,7 @@
   margin-top: 75px;
   width: 250px;
   height: 150px;
-  background-color: #2ecc71;
+  background-color: #f1c40f;
   text-align: center;
 }
 
@@ -49,7 +72,7 @@
   margin-top: 75px;
   width: 250px;
   height: 150px;
-  background-color: #2ecc71;
+  background-color: #f1c40f;
   text-align: center;
 }
 
@@ -63,7 +86,7 @@
 
 #deck-view {
   position: absolute;
-  background-color: #2ecc71;
+  background-color: #3333FF;
   min-height: 450px;
   width: 215px;
   z-index: 2;
@@ -73,7 +96,7 @@
 #add-card-view {
   position: absolute;
   left: -215px;
-  background-color: #2ecc71;
+  background-color: #3333FF;
   min-height: 450px;
   width: 215px;
   z-index: 3;
@@ -82,18 +105,33 @@
 
 #add-card-button {
   width: 100px;
-  margin-left: 60px;
+  margin-left: 58px;
+  margin-top: 5px;
+}
+
+#add-card-button2 {
+  width: 100px;
 }
 
 #toolbar {
-  /*display: flex;*/
-  background-color: #6BB9F0;
+  display: flex;
+  background-color: #2ecc71;
   position: absolute;
-  margin-left: 300px;
-  margin-top: 330px;
-  width: 610px;
-  height: 100px;
+  margin-left: 365px;
+  margin-top: 374px;
+  width: 520px;
+  height: 75px;
   z-index: 2;
+}
+
+.menu{
+  display: flex;
+}
+
+.inner{
+  margin: 10px;
+  height: 25px;
+  margin-top: 25px;
 }
 
 #go-home {
@@ -104,12 +142,12 @@
 
 #button1 {
   width: 100px;
-  margin-left: 60px;
+  /*margin-left: 60px;*/
 }
 
 #button2 {
   width: 100px;
-  margin-left: 60px;
+  /*margin-saveanleft: 60px;*/
 }
 
 #main-editor {
