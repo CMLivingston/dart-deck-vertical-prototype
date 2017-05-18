@@ -2,12 +2,16 @@ body {
   font-family:'Open Sans', sans-serif;
 }
 
+#red-button {
+  border-color: red !important;
+}
+
 .add-deck {
   position: absolute;
   left: 412px;
-  top: -300px;
+  top: -320px;
   background-color: #2ecc71;
-  min-height: 300px;
+  min-height: 320px;
   width: 215px;
   z-index: 999;
   text-align:center;
@@ -25,12 +29,15 @@ body {
   border: 2px solid green;
   width: 80px;
   margin-left: 68px;
+  margin-bottom:20px;
+  margin-top: 20px;
 }
 
 #add-deck-button-2{
   border: 2px solid green;
   width: 80px;
   margin-left: 68px;
+  margin-bottom:20px;
 }
 
 #add-deck-button-3{

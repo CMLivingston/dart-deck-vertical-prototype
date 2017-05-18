@@ -93,7 +93,7 @@ export default class DeckEditor extends Component {
   }
 
   openNC1() {
-    console.log('hehe');
+    //console.log('hehe');
     function slideMenu() {
       var channelSearch = document.querySelector('.name-change');
       channelSearch.classList.toggle('open');
@@ -123,30 +123,25 @@ export default class DeckEditor extends Component {
     });
   }
 
-
-
   renderCards() {
     var cards = this.state.cards;
     return (
       <div className="channelsList">
+      
         {cards.map((card) => {
           return (
             <div>
-              <li className="high" onClick={(e) => this.setCurrentCard(e, card)} key={card.back}>{card.front}</li>
+              <li className="high uli" onClick={(e) => this.setCurrentCard(e, card)} key={card.back}>{card.front}</li>
             </div>
           )
         })}
+      
       </div>
     );
   }
 
-  editClick() {
-    console.log('Edit Clicked');
-  }
-
   deleteClick() {
-    console.log('Delete Clicked');
-
+    //console.log('Delete Clicked');
     s = this.state.cards;
     console.log(s);
     c = this.state.currentCard.front
@@ -158,16 +153,6 @@ export default class DeckEditor extends Component {
       cards: s,
     });
   }
-
-  /**
-  <div className="channel-search">
-            <h3>New Card</h3>
-            <h4>Front</h4> 
-            <input type="text" placeholder="Front of Card" value="" />
-            <h4>Back</h4> 
-            <input type="text" placeholder="Back of Card" value="" />
-          </div>
-  */
 
   go() {
     browserHistory.push('/home')
@@ -244,7 +229,7 @@ export default class DeckEditor extends Component {
           <h2>
             DartDeck - DeckEditor 
           </h2>
-          <button className="inline" onClick={this.go.bind(this)}>Home</button>
+          <button id="red-button" className="inline" onClick={this.go.bind(this)}>Exit Without Saving</button>
           <form action="" className="inline">
             <input type="radio" name="mode" value="flashcard" checked="checked"/> Flashcard Mode<br></br>
             <input onClick={this.alertNoDiag.bind(this)} type="radio" name="mode" value="diagram" /> Diagram Mode<br></br>
@@ -282,9 +267,11 @@ export default class DeckEditor extends Component {
         </div>
         <div className="deck">
           <div className="deck_lable">
+            <div id="center-this">
             <h onClick={this.openNC1.bind(this)}>Current Deck: {this.state.deckName}</h>
-            <p onClick={this.openNC1.bind(this)}>(Click to Change)</p>
-            <hr></hr>
+            <p id="small" onClick={this.openNC1.bind(this)}>(Click to Change)</p>
+            </div>
+            <hr id="hot-border"></hr>
             {this.renderCards()}
           </div>
         </div>

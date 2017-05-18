@@ -7,6 +7,10 @@ body {
   transition: 0.4s;
 }
 
+#red-button {
+  border-color: red !important;
+}
+
 .name-change {
   position: absolute;
   left: -250px;

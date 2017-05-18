@@ -31,7 +31,7 @@ export default class Home extends Component {
   }
 
   alertSomething() {
-    window.alert('The transition to review mode would occur now.');
+    window.alert('The transition to edit or review mode would occur now.');
   }
 
   goToDeckEditor() {
@@ -90,7 +90,7 @@ export default class Home extends Component {
           </tr> 
         </table> 
         <button onClick={this.openCloseAddDeck.bind(this)} type="button">Add Deck!</button>
-        <button onClick={this.so.bind(this)} type="button">Sign Out</button>
+        <button onClick={this.so.bind(this)} id="red-button" type="button">Sign Out</button>
       </div>
     );
   }

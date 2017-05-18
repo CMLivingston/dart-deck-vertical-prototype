@@ -85,7 +85,7 @@ export default class FormInput extends Component {
           <h2>
             DartDeck - Form Input 
           </h2>
-          <button onClick={this.goHome.bind(this)} className="inline">Home</button>
+          <button id="red-button" onClick={this.goHome.bind(this)} className="inline">Exit Without Saving</button>
         </div>
         <hr></hr>
           <form className = "formPanel">

@@ -2,6 +2,14 @@ body {
   font-family:'Open Sans', sans-serif;
   background-color: #E8F5E9;
 }
+html { 
+    overflow-x: hidden; 
+    overflow-y: hidden;
+}
+
+ul {
+  list-style-type: none;
+}
 
 .channel-search {
   position: absolute;
@@ -147,7 +155,15 @@ body {
   z-index: 9997;
 }
 
+#hot-border {
+  border-color: gray;
+  background-color: gray;
+}
 
+#small {
+  font-size: 10px;
+  color: gray;
+}
 
 .edit {
   position: absolute;
@@ -197,7 +213,7 @@ body {
   left: 0;
   width: 215px;
   z-index: 9997;
-  text-align:center;
+  /*text-align:center;*/
   background-clip: content-box;
 }
 
@@ -221,6 +237,10 @@ body {
   background-color: blue;
 }
 
+#red-button {
+  border-color: red !important;
+}
+
 .channel-search.open {
   opacity: 1;
   left: 0;
@@ -229,8 +249,15 @@ body {
   transition: 0.4s;
 }
 
+#center-this {
+  text-align: center;
+}
+
 .high {
   z-index: 9999;
+  margin-left: -15px;
+  text-decoration: underline black;
+  cursor: pointer;
 }
 
 .pad{
