@@ -5,9 +5,9 @@ body {
 .add-deck {
   position: absolute;
   left: 412px;
-  top: -260px;
+  top: -300px;
   background-color: #2ecc71;
-  min-height: 260px;
+  min-height: 300px;
   width: 215px;
   z-index: 999;
   text-align:center;

@@ -26,6 +26,14 @@ export default class Home extends Component {
     }
   }
 
+  so(){
+    browserHistory.push('/');
+  }
+
+  alertSomething() {
+    window.alert('The transition to review mode would occur now.');
+  }
+
   goToDeckEditor() {
     browserHistory.push('/deckeditor')
   }
@@ -58,7 +66,7 @@ export default class Home extends Component {
           <button type="button" id="add-deck-button-2" onClick={this.goToDeckEditor.bind(this)}>Create With Deck Editor</button>
           <button type="button" id="add-deck-button-3" onClick={this.openCloseAddDeck.bind(this)}>Cancel</button>
         </div>
-        <table className="homeTableWrapper">
+        <table onClick={this.alertSomething.bind(this)} className="homeTableWrapper">
           <caption> ALL DECKS </caption> 
           <tr> 
             <th>My Decks</th> 
@@ -82,6 +90,7 @@ export default class Home extends Component {
           </tr> 
         </table> 
         <button onClick={this.openCloseAddDeck.bind(this)} type="button">Add Deck!</button>
+        <button onClick={this.so.bind(this)} type="button">Sign Out</button>
       </div>
     );
   }

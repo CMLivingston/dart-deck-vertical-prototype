@@ -28,6 +28,12 @@ export default class UserSignIn extends React.Component {
   render() {
     return (
       <div className="signInWrapper">
+        <div id="header">
+          <h1>DartDeck</h1>
+        </div>
+        <div id="sub-header">
+          <h3>The Flashcard App</h3>
+        </div>
         <div className="signInContainer">
           <div className="signInContent">
             <div className="signInCard cardSignIn">

@@ -1,6 +1,18 @@
 body {
   font-family:'Open Sans', sans-serif;
 }
+
+#header {
+  position: fixed;
+  left: 445px;
+}
+
+#sub-header {
+  position: fixed;
+  top: 50px;
+  left: 430px;
+}
+
 .signInWrapper {
   margin: 0;
   padding: 0;

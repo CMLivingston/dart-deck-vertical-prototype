@@ -11,7 +11,7 @@ export default class DeckEditor extends Component {
       message1: '',
       message2: '',
       deckType: 'Private',
-      deckName: "New Deck Name",
+      deckName: "My New Deck",
       cards: [],
       currentCard: {
         front: "Front",
@@ -20,6 +20,11 @@ export default class DeckEditor extends Component {
     };
   }
 
+  alertNoDiag() {
+    window.alert("This would switch to the main window below to the Diagramming Mode View.")
+  }
+
+  
   setMessage1(e) {
     this.setState({
       message1: e.target.value,
@@ -191,6 +196,47 @@ export default class DeckEditor extends Component {
     browserHistory.push('/home')
   }
 
+  toRed(){
+    ef = this.refs.ccfront;
+    eb = this.refs.ccback;
+    ef.className = "red";
+    eb.className = "red";
+  }
+
+  toBlue(){
+    ef = this.refs.ccfront;
+    eb = this.refs.ccback;
+    ef.className = "blue";
+    eb.className = "blue";
+  }
+
+  toGreen(){
+    ef = this.refs.ccfront;
+    eb = this.refs.ccback;
+    ef.className = "green";
+    eb.className = "green";
+  }
+
+  toRectangle(){
+    ef = this.refs.ccfront;
+    eb = this.refs.ccback;
+    ef.id = "current-card-front";
+    eb.id = "current-card-back";
+  }
+
+  toTriangle(){
+    ef = this.refs.ccfront;
+    eb = this.refs.ccback;
+    ef.id = "triangle";
+    eb.id = "triangle2";
+  }
+  toCircle(){
+    ef = this.refs.ccfront;
+    eb = this.refs.ccback;
+    ef.id = "circle";
+    eb.id = "circle2";
+  }
+
   render() {
     return (
       <div>
@@ -201,7 +247,7 @@ export default class DeckEditor extends Component {
           <button className="inline" onClick={this.go.bind(this)}>Home</button>
           <form action="" className="inline">
             <input type="radio" name="mode" value="flashcard" checked="checked"/> Flashcard Mode<br></br>
-            <input type="radio" name="mode" value="diagram" /> Diagram Mode<br></br>
+            <input onClick={this.alertNoDiag.bind(this)} type="radio" name="mode" value="diagram" /> Diagram Mode<br></br>
           </form>
         </div>
         <hr></hr>
@@ -215,8 +261,18 @@ export default class DeckEditor extends Component {
         </div>
         <div className="edit">
           <h3>Edit Tools</h3>
-          <p>Here there would be a color pallete for changing color of card and 
-          a shape editor for changing the shape of the card</p>
+          <div id="color-pal">
+            <p>Card Color:</p>
+            <div onClick={this.toRed.bind(this)} id="c1"></div>
+            <div onClick={this.toBlue.bind(this)} id="c2"></div>
+            <div onClick={this.toGreen.bind(this)} id="c3"></div>
+          </div>
+          <div id="shape-pal">
+            <p>Card Shape:</p>
+            <div onClick={this.toRectangle.bind(this)} id="s1"></div>
+            <div onClick={this.toCircle.bind(this)} id="s3"></div>
+            <div onClick={this.toTriangle.bind(this)} id="s2"></div> 
+          </div>
           <button type="button" id="add-card-button" onClick={this.openEdit.bind(this)}>Close</button>
         </div>
         <div className="name-change">
@@ -226,16 +282,16 @@ export default class DeckEditor extends Component {
         </div>
         <div className="deck">
           <div className="deck_lable">
-            <h onClick={this.openNC1.bind(this)}>{this.state.deckName}</h>
+            <h onClick={this.openNC1.bind(this)}>Current Deck: {this.state.deckName}</h>
             <p onClick={this.openNC1.bind(this)}>(Click to Change)</p>
             <hr></hr>
             {this.renderCards()}
           </div>
         </div>
-        <div id="current-card-front">
+        <div ref="ccfront" id="current-card-front">
           <p className="pad">{this.state.currentCard.front}</p>
         </div>
-        <div id="current-card-back">
+        <div ref="ccback" id="current-card-back">
           <p className="pad">{this.state.currentCard.back}</p>
         </div>
         <div id="toolbar">

@@ -5,8 +5,8 @@ body {
 
 .channel-search {
   position: absolute;
-  left: -215px;
-  background-color: #3498db;
+  left: -225px;
+  background-color: #6BB9F0;
   min-height: 450px;
   width: 215px;
   z-index: 9998;
@@ -16,10 +16,143 @@ body {
 
 }
 
+#color-pal{
+  display: flex;
+  z-index: 9999;
+  margin-left: 10px;
+}
+
+#shape-pal{
+  display: flex;
+  z-index: 9999;
+  margin-left: 10px;
+}
+
+#c1 {
+  margin-top: 12px;
+  margin-left: 10px;
+  width: 30px;
+  height: 30px;
+  background-color: red;
+}
+
+#c2 {
+  margin-top: 12px;
+  margin-left: 15px;
+  width: 30px;
+  height: 30px;
+  background-color: blue;
+}
+
+#c3 {
+  margin-top: 12px;
+  margin-left: 16px;
+  width: 30px;
+  height: 30px;
+  background-color: green;
+}
+
+#s1 {
+  margin-top: 12px;
+  margin-left: 4px;
+  width: 40px; 
+  height: 30px; 
+  background: white; 
+}
+
+#s2 {
+  margin-top: 12px;
+  margin-left: 10px;
+  width: 0; 
+  height: 0; 
+  border-bottom: 30px solid white; 
+  border-left: 15px solid transparent; 
+  border-right: 15px solid transparent; 
+}
+#s3 {
+  margin-top: 12px;
+  margin-left: 10px;
+  width: 30px;
+  height: 30px;
+  background: white; 
+  -moz-border-radius: 70px; 
+  -webkit-border-radius: 70px; 
+  border-radius: 70px;
+}
+
+
+
+.triangle {
+  width: 0; 
+  height: 0; 
+  border-bottom: 100px solid white; 
+  border-left: 50px solid transparent; 
+  border-right: 50px solid transparent; 
+}
+#circle {
+  position: absolute;
+  text-align: center;
+  margin-top: 75px;
+  margin-left: 420px;
+  width: 140px;
+  height: 140px;
+  background: #f1c40f;
+  border-color: black; 
+  -moz-border-radius: 70px; 
+  -webkit-border-radius: 70px; 
+  border-radius: 70px;
+  z-index: 9997;
+  word-wrap: break-word;
+}
+
+#circle2 {
+  position: absolute;
+  text-align: center;
+  margin-top: 75px;
+  margin-left: 720px;
+  width: 140px;
+  height: 140px;
+  background: #f1c40f;
+  border-color: black; 
+  -moz-border-radius: 70px; 
+  -webkit-border-radius: 70px; 
+  border-radius: 70px;
+  z-index: 9997;
+  word-wrap: break-word;
+}
+
+#triangle {
+  position: absolute;
+  text-align: center;
+  margin-top: 55px;
+  margin-left: 440px;
+  width: 0; 
+  height: 0; 
+  border-bottom: 180px solid #f1c40f; 
+  border-left: 90px solid transparent; 
+  border-right: 90px solid transparent; 
+  z-index: 9997;
+}
+
+#triangle2 {
+  position: absolute;
+  text-align: center;
+  margin-top: 55px;
+  margin-left: 740px;
+  width: 0; 
+  height: 0; 
+  border-bottom: 180px solid #f1c40f; 
+  border-left: 90px solid transparent; 
+  border-right: 90px solid transparent; 
+  z-index: 9997;
+}
+
+
+
 .edit {
   position: absolute;
   left: 350px;
-  background-color: #3498db;
+  background-color: #e67e22;
   min-height: 200px;
   bottom: -500px;
   width: 540px;
@@ -43,7 +176,7 @@ body {
 .name-change {
   position: absolute;
   left: -250px;
-  background-color: gray;
+  background-color: #6BB9F0 !important;
   min-height: 160px;
   width: 250px;
   z-index: 9998;
@@ -112,16 +245,30 @@ body {
   height: 150px;
   background-color: #f1c40f;
   text-align: center;
+  word-wrap: break-word;
 }
 
 #current-card-back {
- position: absolute;
+  position: absolute;
   margin-left: 650px;
   margin-top: 75px;
   width: 250px;
   height: 150px;
   background-color: #f1c40f;
   text-align: center;
+  word-wrap: break-word;
+}
+
+.red {
+  background-color: #e74c3c !important;
+}
+
+.green {
+  background-color: #2ecc71 !important;
+}
+
+.blue {
+  background-color: #3498db !important;
 }
 
 #deck-editor-sub-container {
@@ -148,7 +295,7 @@ body {
   min-height: 450px;
   width: 215px;
   z-index: 3;
-  text-align:center
+  text-align:center;
 }
 
 #add-card-button {

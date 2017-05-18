@@ -3,6 +3,25 @@ body {
   background-color: #E8F5E9;
 }
 
+.transition {
+  transition: 0.4s;
+}
+
+.name-change {
+  position: absolute;
+  left: -250px;
+  background-color: gray;
+  min-height: 160px;
+  width: 250px;
+  z-index: 9998;
+  text-align:center;
+  background-clip: content-box;
+}
+.name-change.open {
+  opacity: 1;
+  left: 0px;
+}
+
 .formPanel{
   text-align: center;
   padding-top: 10px;
