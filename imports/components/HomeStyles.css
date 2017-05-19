@@ -4,6 +4,12 @@ body {
 
 #red-button {
   border-color: red !important;
+  margin-top:0px;
+  width: 8%;
+  margin-left: 90%;
+}
+h2{
+  margin-bottom: 0px;
 }
 
 .add-deck {
@@ -42,7 +48,7 @@ body {
 
 #add-deck-button-3{
   border: 2px solid green;
-  width: 80px;  
+  width: 80px;
   margin-left: 68px;
 }
 
@@ -72,7 +78,7 @@ button{
 .checkbox > input[type=checkbox] {
   visibility: hidden;
 }
-        
+
 .checkbox {
   display: inline-block;
   position: relative;
